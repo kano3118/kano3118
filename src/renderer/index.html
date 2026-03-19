@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Scanner Pro</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Stock Scanner Pro</h1>
+        <p>Institutional-style multi-factor scanner</p>
+      </div>
+      <div class="status-wrap">
+        <span id="connStatus" class="status">Connecting...</span>
+        <button id="scanNowBtn">Run Scan</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel watchlist-panel">
+        <h2>Watchlist</h2>
+        <div class="watchlist-input">
+          <input id="symbolInput" placeholder="Add symbol (e.g., AAPL)" />
+          <button id="addSymbolBtn">Add</button>
+        </div>
+        <ul id="watchlist"></ul>
+      </section>
+
+      <section class="panel config-panel">
+        <h2>Scanner Filters</h2>
+        <div class="grid2">
+          <label>Min Price <input id="minPrice" type="number" value="5" /></label>
+          <label>Max Price <input id="maxPrice" type="number" value="500" /></label>
+          <label>Min Volume <input id="minVolume" type="number" value="500000" /></label>
+          <label>Min Market Cap (B) <input id="minMarketCapB" type="number" value="2" /></label>
+        </div>
+        <button id="saveFilterBtn">Apply Filters</button>
+      </section>
+
+      <section class="panel table-panel">
+        <h2>Signals</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Price</th><th>Action</th><th>Score</th><th>RSI</th><th>RR</th><th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="signalTable"></tbody>
+        </table>
+      </section>
+
+      <section class="panel chart-panel">
+        <h2 id="chartTitle">Chart</h2>
+        <canvas id="priceChart"></canvas>
+      </section>
+
+      <section class="panel alerts-panel">
+        <h2>Signal Feed</h2>
+        <div id="signalFeed"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

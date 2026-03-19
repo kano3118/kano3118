@@ -1,0 +1,74 @@
+:root {
+  --bg: #0c0f17;
+  --panel: #151a24;
+  --border: #293245;
+  --text: #e7ecf7;
+  --muted: #9baccc;
+  --buy: #2dcc82;
+  --sell: #ff5570;
+  --hold: #f3c969;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  background: #0d121f;
+}
+.topbar h1 { margin: 0; }
+.topbar p { margin: .2rem 0 0; color: var(--muted); font-size: .9rem; }
+.status-wrap { display: flex; gap: .7rem; align-items: center; }
+.status {
+  border: 1px solid var(--border);
+  padding: .4rem .7rem;
+  border-radius: 999px;
+}
+main {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: .8rem;
+}
+.watchlist-panel { grid-column: span 3; }
+.config-panel { grid-column: span 3; }
+.table-panel { grid-column: span 6; }
+.chart-panel { grid-column: span 8; }
+.alerts-panel { grid-column: span 4; }
+h2 { margin-top: .2rem; font-size: 1rem; }
+.watchlist-input { display: flex; gap: .5rem; margin-bottom: .5rem; }
+#watchlist { list-style: none; padding: 0; margin: 0; }
+#watchlist li { display: flex; justify-content: space-between; padding: .3rem 0; border-bottom: 1px dashed #27324a; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+label { display: grid; gap: .2rem; font-size: .85rem; color: var(--muted); }
+input, button {
+  background: #0f1522;
+  color: var(--text);
+  border: 1px solid #304062;
+  border-radius: 8px;
+  padding: .45rem .6rem;
+}
+button { cursor: pointer; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td { border-bottom: 1px solid #26324a; padding: .45rem .35rem; text-align: left; }
+.action-BUY { color: var(--buy); font-weight: 700; }
+.action-SELL { color: var(--sell); font-weight: 700; }
+.action-HOLD { color: var(--hold); font-weight: 700; }
+#signalFeed { max-height: 300px; overflow: auto; display: grid; gap: .5rem; }
+.signal-item { border: 1px solid #2a3650; border-radius: 8px; padding: .5rem; font-size: .85rem; }
+@media (max-width: 1200px) {
+  .watchlist-panel, .config-panel, .table-panel, .chart-panel, .alerts-panel { grid-column: span 12; }
+}
